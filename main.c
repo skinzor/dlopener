@@ -10,10 +10,12 @@ int main(int argc, char *argv[])
     int status = -EINVAL;
     void *handle = NULL;
 
-    if(argc == 0) {
-	printf("Please specify a module to load!");
+    if(argc <= 1) {
+	printf("Please specify a module to load!\n");
 	return status;
     }
+
+    path = argv[1];
 
     handle = dlopen(path, RTLD_NOW);
     if (handle == NULL) {
